@@ -25,7 +25,11 @@ function App() {
   };
 
   useEffect(() => {
-    setDebouncedSearch(searchText);
+    const timer = setTimeout(() => {
+      setDebouncedSearch(searchText);
+    }, 300);
+
+    return () => clearTimeout(timer);
   }, [searchText]);
 
   const normalizedSearch = debouncedSearch.trim().toLowerCase();
