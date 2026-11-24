@@ -47,6 +47,10 @@ function App() {
     displayedProducts = [...filteredProducts].sort((a, b) => b.price - a.price);
   }
 
+  useEffect(() => {
+    document.title = `CvSU Mini Store (${displayedProducts.length} results)`;
+  }, [displayedProducts.length]);
+
   const cartMessage =
     cartCount === 0
       ? "Your cart is empty."
